@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>skull</title>
+    </head>
+    <body>
+        <noscript>enable javascript goddamnit!!!!</noscript>
+        <img src="skull.jpeg" id="☠️" draggable="false" />
+        <button onclick="skull()" id="💀">💀</button>
+        <style>
+            body {
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                background: #000;
+                flex-direction: column;
+                gap: 10px;
+            }
+            #💀 {
+                transition: 0.2s;
+                border-style: solid;
+                border-color: #878787;
+                width: 50px;
+                height: 50px;
+                background-color: #2a2a2a;
+            }
+            #💀:hover {
+                transition: 0.2s;
+                background-color: #323232;
+            }
+            #💀:active {
+                transition: 0.1s;
+                background-color: #141414;
+            }
+            #☠️ {
+                opacity: 0;
+            }
+        </style>
+        <script>
+            document.addEventListener("contextmenu", (x) => x.preventDefault());
+            function skull() {
+                let epicskullimg = document.getElementById("☠️");
+                let skull = new Audio("skull.mp3");
+                let audioContext = new AudioContext();
+                let audioSource = audioContext.createMediaElementSource(skull);
+                audioSource.connect(audioContext.destination);
+                epicskullimg.style = "transition: 0.1s; opacity: 1 !important;";
+                skull.play();
+                skull.addEventListener("ended", function () {
+                    epicskullimg.style = "transition: 0.4s;";
+                });
+            }
+        </script>
+    </body>
+</html>
